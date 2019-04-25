@@ -1,0 +1,5 @@
+classes = 2
+train = data/rgripper/train.txt
+valid = data/rgripper/test.txt
+names = data/rgripper.names
+backup = backup/
