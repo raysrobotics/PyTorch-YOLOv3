@@ -23,7 +23,7 @@ import torch.optim as optim
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--epochs", type=int, default=100, help="number of epochs")
-parser.add_argument("--batch_size", type=int, default=8, help="size of each image batch")
+parser.add_argument("--batch_size", type=int, default=24, help="size of each image batch")
 parser.add_argument("--gradient_accumulations", type=int, default=2, help="number of gradient accums before step")
 parser.add_argument("--model_config_path", type=str, default="config/yolov3.cfg", help="path to model config file")
 parser.add_argument("--data_config_path", type=str, default="config/coco.data", help="path to data config file")
@@ -57,7 +57,8 @@ if opt.weights_path:
     if opt.weights_path.endswith(".weights"):
         model.load_darknet_weights(opt.weights_path)
     else:
-        model.load_state_dict(torch.load(opt.weights_path))
+        # model.load_state_dict(torch.load(opt.weights_path))
+        model.load_darknet_weights(opt.weights_path)
 
 model.train()
 
